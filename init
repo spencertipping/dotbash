@@ -1,0 +1,120 @@
+#!/bin/bash
+# Source this from your bashrc to enable .bash.
+
+DOTBASH=${DOTBASH:-$HOME/.bash}
+
+dotbash() { dotbash_$1 "${@:2}"; }
+
+dotbash_use() {
+  # Enables a layer.
+  dotbash_layer_$1 "${@:2}"
+}
+
+dotbash_dirclone() {
+  [[ -d "$DOTBASH/$1" ]] || git clone "$2" "$DOTBASH/$1"
+}
+
+# Module definitions
+dotbash_layer_cd-aliases() {
+  alias b='cd -'
+  alias bb='cd -2'
+  alias b2='cd -2'
+  alias b3='cd -3'
+  alias b4='cd -4'
+
+  alias u='cd ..'
+  alias uu='cd ../..'
+  alias u2='cd ../..'
+  alias u3='cd ../../..'
+  alias u4='cd ../../../..'
+  alias u5='cd ../../../../..'
+  alias u6='cd ../../../../../..'
+}
+
+dotbash_layer_cd() {
+  dotbash_dirclone cd git://github.com/spencertipping/cd
+  if [[ $1 == all ]]; then
+    CD_EXTENSIONS=all
+  else
+    CD_EXTENSIONS=( "$@" )
+  fi
+  source "$DOTBASH/cd/cd"
+}
+
+dotbash_layer_docker() {
+  dr() {
+    # Launch a "docker repl" using a Dockerfile whose command is /bin/bash.
+    # Builds an untagged image and runs it with a transient TTY-enabled
+    # container whose /data is mounted to the current directory. Also sets up
+    # an X11 connection to the current host display, so the docker can run
+    # graphical applications.
+
+    if [[ -n "$DISPLAY" ]]; then
+      XAUTH=/tmp/.docker.xauth${DISPLAY//:/.}
+      xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
+      X_OPTS="-v /tmp/.X11-unix:/tmp/.X11-unix \
+              -v $XAUTH:$XAUTH \
+              -e XAUTHORITY=$XAUTH \
+              -e DISPLAY=$DISPLAY"
+    else
+      X_OPTS=
+    fi
+
+    docker run -v $PWD:/data $X_OPTS --rm -it "$@" $(docker build -q .)
+  }
+}
+
+dotbash_layer_git-aliases() {
+  alias gc='git commit -am'
+  alias gU='git push'
+  alias gu='git pull'
+  alias gs='git status'
+  alias gd='git diff'
+  alias gL='git log'
+}
+
+dotbash_layer_hats() {
+  dotbash_dirclone hats git://github.com/spencertipping/bash-hats
+  source "$DOTBASH/hats/bash-hats"
+}
+
+dotbash_layer_history() {
+  export HISTCONTROL=ignoredups:ignorespace
+  alias otr='history -c; export HISTIGNORE="*"'
+}
+
+dotbash_layer_lambda() {
+  dotbash_dirclone lambda git://github.com/spencertipping/bash-lambda
+  bl() {
+    source "$DOTBASH/lambda/bash-lambda"
+  }
+}
+
+dotbash_layer_ls-aliases() {
+  alias ls='ls --color=auto'
+  alias ll='ls -ilh'
+  alias la='ls -a'
+  alias lst='ls -tr'
+  alias s='ls'
+}
+
+dotbash_layer_nfu() {
+  dotbash_dirclone nfu git://github.com/spencertipping/nfu
+  [[ -e ~/bin/nfu ]] || ln -s "$DOTBASH/nfu/nfu" ~/bin/
+}
+
+dotbash_layer_path() {
+  export PATH="$PATH:$HOME/bin:."
+}
+
+dotbash_layer_prompt() {
+  dotbash_dirclone prompt git://github.com/spencertipping/bash-prompt
+  source "$DOTBASH/prompt/prompt"
+}
+
+dotfile_layer_tmux() {
+  dotbash_dirclone tmux git://github.com/spencertipping/bashrc-tmux
+  source "$DOTBASH/tmux/bashrc-tmux"
+  source "$DOTBASH/tmux/bashrc-xpra"
+}
+
