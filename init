@@ -7,6 +7,19 @@ dotbash()          { dotbash_$1 "${@:2}"; }
 dotbash_dirclone() { [[ -d "$DOTBASH/$1" ]] || git clone "$2" "$DOTBASH/$1"; }
 dotbash_use()      { dotbash_layer_$1 "${@:2}"; }
 
+dotbash_pull() {
+  cd "$DOTBASH"
+  git pull
+
+  for r in *; do
+    if [[ -d "$r/.git" ]]; then
+      cd "$r"
+      git pull
+      cd "$DOTBASH"
+    fi
+  done
+}
+
 # Module definitions
 dotbash_layer_cd-aliases() {
   alias b='cd -'
