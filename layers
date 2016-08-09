@@ -2,7 +2,7 @@
 dotbash use tmux                # always load this one first
 
 dotbash use cd-aliases
-dotbash use cd                  # all extensions enabled by default
+dotbash use cd all
 dotbash use docker
 dotbash use git-aliases
 dotbash use history

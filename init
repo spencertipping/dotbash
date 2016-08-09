@@ -33,11 +33,7 @@ dotbash_layer_cd-aliases() {
 
 dotbash_layer_cd() {
   dotbash_dirclone cd git://github.com/spencertipping/cd
-  if [[ $# = 0 ]]; then
-    CD_EXTENSIONS=all
-  else
-    CD_EXTENSIONS=( "$@" )
-  fi
+  CD_EXTENSIONS=( "$@" )
   source "$DOTBASH/cd/cd"
 }
 
