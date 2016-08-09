@@ -12,6 +12,11 @@ $ echo '. ~/.bash/init' >> ~/.bashrc
 `.bash` will clone all of the other repositories and set everything up for you.
 You can pull the latest versions of everything using `dotbash pull`.
 
+## Trying it out
+```sh
+$ docker run --hostname dotbash-test -v $PWD:/data --rm -it $(docker build -q .)
+```
+
 ## Usage
 `.bash` provides some aliases, functions, etc, that you may find useful
 depending on your preferences. They're organized into layers, which you can

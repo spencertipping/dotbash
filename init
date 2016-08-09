@@ -112,7 +112,7 @@ dotbash_layer_prompt() {
   source "$DOTBASH/prompt/prompt"
 }
 
-dotfile_layer_tmux() {
+dotbash_layer_tmux() {
   dotbash_dirclone tmux git://github.com/spencertipping/bashrc-tmux
   source "$DOTBASH/tmux/bashrc-tmux"
   source "$DOTBASH/tmux/bashrc-xpra"
