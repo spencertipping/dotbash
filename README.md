@@ -14,7 +14,13 @@ You can pull the latest versions of everything using `dotbash pull`.
 
 ## Trying it out
 ```sh
-$ docker run --hostname dotbash-test -v $PWD:/data --rm -it $(docker build -q .)
+$ docker run --privileged -v $PWD:/data --rm -it $(docker build -q .)
+```
+
+Or, if you're already using `.bash`:
+
+```sh
+$ dr --privileged
 ```
 
 ## Usage
