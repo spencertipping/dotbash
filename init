@@ -118,3 +118,4 @@ dotfile_layer_tmux() {
   source "$DOTBASH/tmux/bashrc-xpra"
 }
 
+source "$DOTBASH/layers"
