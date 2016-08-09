@@ -26,7 +26,7 @@ dotbash_layer_cd-aliases() {
 
 dotbash_layer_cd() {
   dotbash_dirclone cd git://github.com/spencertipping/cd
-  export CD_EXTENSIONS=( "$@" )
+  declare -a CD_EXTENSIONS=( "$@" )
   source "$DOTBASH/cd/cd"
 }
 
