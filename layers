@@ -1,6 +1,8 @@
 # Layer configuration for .bash
+dotbash use tmux                # always load this one first
+
 dotbash use cd-aliases
-dotbash use cd all
+dotbash use cd                  # all extensions enabled by default
 dotbash use docker
 dotbash use git-aliases
 dotbash use history
@@ -8,7 +10,6 @@ dotbash use lambda
 dotbash use ls-aliases
 dotbash use nfu
 dotbash use prompt
-dotbash use tmux
 
 # Layers that aren't enabled by default
 # dotbash use hats              # this one is lame
