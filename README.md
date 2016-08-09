@@ -56,18 +56,32 @@ helpers installed.
 I highly recommend using this; by now it's something I can't live without.
 
 ### `docker`
-Defines the `dr` function for [dockerized repl support](docker-repl.md), which
-makes it easy to create transient images and containers. `dr` automatically
-connects X11 inside the container, so graphical apps work seamlessly, and
-`/data` is mounted to the current directory:
+Defines the `dr` function for dockerized repl support, which makes it easy to
+create transient images and containers. `dr` automatically connects X11 inside
+the container, so graphical apps work seamlessly, and `/data` is mounted to the
+current directory:
 
 ```sh
-$ echo -e 'FROM ubuntu:16.04\nWORKDIR /data\nCMD /bin/bash' > Dockerfile
+$ cat > Dockerfile <<EOF
+FROM ubuntu:16.04
+WORKDIR /data
+CMD /bin/bash
+EOF
 $ dr
-root@924f76e8c14d:/data# echo foo > bar; exit
+root@924f76e8c14d:/data# echo foo > bar
+root@924f76e8c14d:/data# ^D
 $ cat bar
 foo
 $
+```
+
+Arguments you pass to `dr` are forwarded to `docker run`. Here's how it works,
+minus the details for X11:
+
+```sh
+dr() {
+  docker run -v $PWD:/data $X11_STUFF --rm -it "$@" $(docker build -q .)
+}
 ```
 
 ### `git-aliases`
