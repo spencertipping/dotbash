@@ -12,7 +12,8 @@ dotbash use history
 dotbash use lambda
 dotbash use nfu
 
-dotbash use cd all
+# dotbash use cd all            # enables everything
+dotbash use cd ssh aufs archive dev loop encfs git nfs history missing-mkdir
 
 # Layers that aren't enabled by default
 # dotbash use hats              # this one is lame
