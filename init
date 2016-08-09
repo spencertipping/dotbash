@@ -3,16 +3,9 @@
 
 DOTBASH=${DOTBASH:-$HOME/.bash}
 
-dotbash() { dotbash_$1 "${@:2}"; }
-
-dotbash_use() {
-  # Enables a layer.
-  dotbash_layer_$1 "${@:2}"
-}
-
-dotbash_dirclone() {
-  [[ -d "$DOTBASH/$1" ]] || git clone "$2" "$DOTBASH/$1"
-}
+dotbash()          { dotbash_$1 "${@:2}"; }
+dotbash_dirclone() { [[ -d "$DOTBASH/$1" ]] || git clone "$2" "$DOTBASH/$1"; }
+dotbash_use()      { dotbash_layer_$1 "${@:2}"; }
 
 # Module definitions
 dotbash_layer_cd-aliases() {
@@ -33,7 +26,7 @@ dotbash_layer_cd-aliases() {
 
 dotbash_layer_cd() {
   dotbash_dirclone cd git://github.com/spencertipping/cd
-  CD_EXTENSIONS=( "$@" )
+  export CD_EXTENSIONS=( "$@" )
   source "$DOTBASH/cd/cd"
 }
 
