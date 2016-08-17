@@ -109,7 +109,7 @@ dotbash_layer_nfu() {
 
 dotbash_layer_path-bin() {
   [[ -d "$HOME/bin" ]] || mkdir -p "$HOME/bin"
-  export PATH="$PATH:$HOME/bin"
+  export PATH="$HOME/bin:$PATH"
 }
 
 dotbash_layer_path-here() {

@@ -130,12 +130,14 @@ alias s='ls'                    # typo insurance
 ### `nfu`
 Installs a symlink to `nfu` into `~/bin`.
 
-### `path`
+### `path-bin`
+Creates `~/bin` if it doesn't exist, and _prepends_ it to your `$PATH`.
+
+### `path-here`
 **Disabled by default for security reasons.**
 
-Adds `~/bin` and `.` to your `$PATH`, in that order. This isn't as risky as
-_prepending_ `.` to your `$PATH` (which would be insane), but it makes typos
-potentially very dangerous.
+Appends `.` to your `$PATH`. This isn't as risky as _prepending_ `.` to your
+`$PATH` (which would be insane), but it makes typos potentially very dangerous.
 
 ### `prompt`
 Sets up a [double-sided bash
