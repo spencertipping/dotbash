@@ -1,6 +1,9 @@
 # Layer configuration for .bash
 dotbash use tmux                # always load this one first
 
+dotbash use path-bin            # mkdirs, adds ~/bin to the path
+# dotbash use path-here         # adds ./ to the path (dangerous)
+
 dotbash use cd-aliases
 dotbash use git-aliases
 dotbash use ls-aliases
@@ -17,4 +20,3 @@ dotbash use cd ssh aufs archive dev loop encfs git nfs history missing-mkdir
 
 # Layers that aren't enabled by default
 # dotbash use hats              # this one is lame
-# dotbash use path              # this one is a little dangerous

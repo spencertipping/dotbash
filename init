@@ -107,8 +107,13 @@ dotbash_layer_nfu() {
   [[ -e ~/bin/nfu ]] || ln -s "$DOTBASH/nfu/nfu" ~/bin/
 }
 
-dotbash_layer_path() {
-  export PATH="$PATH:$HOME/bin:."
+dotbash_layer_path-bin() {
+  [[ -d "$HOME/bin" ]] || mkdir -p "$HOME/bin"
+  export PATH="$PATH:$HOME/bin"
+}
+
+dotbash_layer_path-here() {
+  export PATH="$PATH:."
 }
 
 dotbash_layer_prompt() {
