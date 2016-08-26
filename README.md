@@ -12,7 +12,17 @@ $ echo '. ~/.bash/init' >> ~/.bashrc
 `.bash` will clone all of the other repositories and set everything up for you.
 You can pull the latest versions of everything using `dotbash pull`.
 
+If you don't like it, you can remove the extra line from `.bashrc` and nuke the
+`.bash` directory to get rid of everything:
+
+```sh
+$ rm -rf ~/.bash
+```
+
 ## Trying it out
+I use `--privileged` here to give the container a way to mount FUSE
+filesystems, but you don't have to.
+
 ```sh
 $ docker run --privileged -v $PWD:/data --rm -it $(docker build -q .)
 ```
