@@ -94,6 +94,11 @@ dotbash_layer_lambda() {
   }
 }
 
+dotbash_layer_lazytest() {
+  dotbash_dirclone lazytest git://github.com/spencertipping/lazytest
+  [[ -e ~/bin/lazytest ]] || ln -s "$DOTBASH/lazytest/lazytest" ~/bin/
+}
+
 dotbash_layer_ls-aliases() {
   alias ls='ls --color=auto'
   alias ll='ls -ilh'

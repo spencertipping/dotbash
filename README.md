@@ -137,9 +137,6 @@ alias lst='ls -tr'              # most recent files last (surprisingly useful)
 alias s='ls'                    # typo insurance
 ```
 
-### `nfu`
-Installs a symlink to `nfu` into `~/bin`.
-
 ### `path-bin`
 Creates `~/bin` if it doesn't exist, and _prepends_ it to your `$PATH`.
 
@@ -157,3 +154,9 @@ indicators on the right.
 ### `tmux`
 If active, enables [tmux and xpra SSH
 persistence](https://github.com/spencertipping/bashrc-tmux).
+
+## Non-bash layers
+These just clone repos and install things into `~/bin`.
+
+- [lazytest](https://github.com/spencertipping/lazytest)
+- [nfu](https://github.com/spencertipping/nfu)
