@@ -160,3 +160,4 @@ These just clone repos and install things into `~/bin`.
 
 - [lazytest](https://github.com/spencertipping/lazytest)
 - [nfu](https://github.com/spencertipping/nfu)
+- [ni](https://github.com/spencertipping/ni)
