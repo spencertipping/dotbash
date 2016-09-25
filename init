@@ -112,6 +112,11 @@ dotbash_layer_nfu() {
   [[ -e ~/bin/nfu ]] || ln -s "$DOTBASH/nfu/nfu" ~/bin/
 }
 
+dotbash_layer_ni() {
+  dotbash_dirclone ni git://github.com/spencertipping/ni
+  [[ -e ~/bin/ni ]] || ln -s "$DOTBASH/ni/ni" ~/bin/
+}
+
 dotbash_layer_path-bin() {
   [[ -d "$HOME/bin" ]] || mkdir -p "$HOME/bin"
   export PATH="$HOME/bin:$PATH"

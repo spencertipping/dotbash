@@ -14,6 +14,7 @@ dotbash use docker
 dotbash use history
 dotbash use lambda
 dotbash use nfu
+dotbash use ni
 dotbash use lazytest
 
 # dotbash use cd all            # enables everything
