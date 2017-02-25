@@ -11,6 +11,8 @@ dotbash_pull() {
   (
     cd "$DOTBASH"
     git pull
+    source init
+    source layers
 
     for r in *; do
       if [[ -d "$r/.git" ]]; then
