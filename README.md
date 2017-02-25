@@ -38,6 +38,11 @@ $ dr --privileged
 depending on your preferences. They're organized into layers, which you can
 enable or disable by editing `.bash/layers`:
 
+### `apply`
+Includes [bash-apply](https://github.com/spencertipping/bash-apply), which lets
+you use imperative commands like `convert`, `ffmpeg`, or anything else that
+writes an output file in a more functional way.
+
 ### `cd-aliases`
 Sets the following aliases:
 

@@ -17,6 +17,8 @@ dotbash use nfu
 dotbash use ni
 dotbash use lazytest
 
+dotbash use apply
+
 # dotbash use cd all            # enables everything
 dotbash use cd ssh aufs archive dev loop encfs git nfs history missing-mkdir
 
