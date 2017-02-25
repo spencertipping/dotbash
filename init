@@ -24,7 +24,7 @@ dotbash_pull() {
 
 # Module definitions
 dotbash_layer_apply() {
-  dotbash_dirclone cd git://github.com/spencertipping/bash-apply
+  dotbash_dirclone bash-apply git://github.com/spencertipping/bash-apply
   source "$DOTBASH/bash-apply/bash-apply"
 }
 
