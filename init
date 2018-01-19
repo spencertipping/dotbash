@@ -26,7 +26,7 @@ dotbash_pull() {
 
 # Module definitions
 dotbash_layer_apply() {
-  dotbash_dirclone bash-apply git://github.com/spencertipping/bash-apply
+  dotbash_dirclone bash-apply https://github.com/spencertipping/bash-apply.git
   source "$DOTBASH/bash-apply/bash-apply"
 }
 
@@ -47,7 +47,7 @@ dotbash_layer_cd-aliases() {
 }
 
 dotbash_layer_cd() {
-  dotbash_dirclone cd git://github.com/spencertipping/cd
+  dotbash_dirclone cd https://github.com/spencertipping/cd.git
   CD_EXTENSIONS=( "$@" )
   source "$DOTBASH/cd/cd"
 }
@@ -85,7 +85,7 @@ dotbash_layer_git-aliases() {
 }
 
 dotbash_layer_hats() {
-  dotbash_dirclone hats git://github.com/spencertipping/bash-hats
+  dotbash_dirclone hats https://github.com/spencertipping/bash-hats.git
   source "$DOTBASH/hats/bash-hats"
 }
 
@@ -95,14 +95,14 @@ dotbash_layer_history() {
 }
 
 dotbash_layer_lambda() {
-  dotbash_dirclone lambda git://github.com/spencertipping/bash-lambda
+  dotbash_dirclone lambda https://github.com/spencertipping/bash-lambda.git
   bl() {
     source "$DOTBASH/lambda/bash-lambda"
   }
 }
 
 dotbash_layer_lazytest() {
-  dotbash_dirclone lazytest git://github.com/spencertipping/lazytest
+  dotbash_dirclone lazytest https://github.com/spencertipping/lazytest.git
   [[ -e ~/bin/lazytest ]] || ln -s "$DOTBASH/lazytest/lazytest" ~/bin/
 }
 
@@ -115,12 +115,12 @@ dotbash_layer_ls-aliases() {
 }
 
 dotbash_layer_nfu() {
-  dotbash_dirclone nfu git://github.com/spencertipping/nfu
+  dotbash_dirclone nfu https://github.com/spencertipping/nfu.git
   [[ -e ~/bin/nfu ]] || ln -s "$DOTBASH/nfu/nfu" ~/bin/
 }
 
 dotbash_layer_ni() {
-  dotbash_dirclone ni git://github.com/spencertipping/ni
+  dotbash_dirclone ni https://github.com/spencertipping/ni.git
   [[ -e ~/bin/ni ]] || ln -s "$DOTBASH/ni/ni" ~/bin/
 }
 
@@ -134,12 +134,12 @@ dotbash_layer_path-here() {
 }
 
 dotbash_layer_prompt() {
-  dotbash_dirclone prompt git://github.com/spencertipping/bash-prompt
+  dotbash_dirclone prompt https://github.com/spencertipping/bash-prompt.git
   source "$DOTBASH/prompt/prompt"
 }
 
 dotbash_layer_tmux() {
-  dotbash_dirclone tmux git://github.com/spencertipping/bashrc-tmux
+  dotbash_dirclone tmux https://github.com/spencertipping/bashrc-tmux.git
   source "$DOTBASH/tmux/bashrc-tmux"
   source "$DOTBASH/tmux/bashrc-xpra"
 }
