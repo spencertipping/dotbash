@@ -73,6 +73,11 @@ dotbash_layer_docker() {
 
     docker run -v $PWD:/data $X_OPTS --rm -it "$@" $(docker build -q .)
   }
+
+  dsh() {
+    # Run a shell in the given container
+    docker exec -it $1 /bin/bash
+  }
 }
 
 dotbash_layer_git-aliases() {
