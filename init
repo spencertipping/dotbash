@@ -78,6 +78,13 @@ dotbash_layer_docker() {
     # Run a shell in the given container
     docker exec -it $1 /bin/bash
   }
+
+  dsi() {
+    # Run a shell in the given _image_, auto-removing it when we're done
+    local image=$1
+    shift
+    docker run --rm -it $image "$@" /bin/bash
+  }
 }
 
 dotbash_layer_git-aliases() {
