@@ -20,7 +20,7 @@ dotbash use lazytest
 dotbash use apply
 
 # dotbash use cd all            # enables everything
-dotbash use cd ssh aufs archive dev loop encfs git nfs history missing-mkdir
+dotbash use cd ssh aufs archive dev loop encfs nfs history missing-mkdir
 
 # Layers that aren't enabled by default
 # dotbash use hats              # this one is lame
