@@ -150,6 +150,20 @@ dotbash_layer_prompt() {
   source "$DOTBASH/prompt/prompt"
 }
 
+dotbash_layer_tasks() {
+  # Define this function globally, then call it when initializing (if you use
+  # this layer, call it after tmux).
+  tasks() {
+    if [[ -r ~/.tasks ]]; then
+      perl -npe 's/^/task: /' < ~/.tasks
+    else
+      echo "no task file; create $HOME/.tasks to enable task list" >&2
+      return 1
+    fi
+  }
+  tasks
+}
+
 dotbash_layer_tmux() {
   dotbash_dirclone tmux https://github.com/spencertipping/bashrc-tmux.git
   source "$DOTBASH/tmux/bashrc-tmux"

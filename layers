@@ -16,6 +16,7 @@ dotbash use lambda
 dotbash use nfu
 dotbash use ni
 dotbash use lazytest
+dotbash use tasks
 
 dotbash use apply
 
