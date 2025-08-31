@@ -21,7 +21,7 @@ dotbash use tasks
 dotbash use apply
 
 # dotbash use cd all            # enables everything
-dotbash use cd ssh s3fs aufs archive dev loop encfs nfs history missing-mkdir
+dotbash use cd ssh s3fs aufs archive dev loop encfs gocryptfs nfs history missing-mkdir
 
 # Layers that aren't enabled by default
 # dotbash use hats              # this one is lame
